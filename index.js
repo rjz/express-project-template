@@ -35,12 +35,22 @@ if (cluster.isMaster) {
       log('Exited with ' + code, { pid: pid });
     });
 
-    workers[pid] = { pid: [pid] };
+    workers[pid] = {
+      start: Date.now(),
+      pid: [pid]
+    };
   });
 
   cluster.on('disconnect', function (worker) {
+    if (Date.now() - workers[worker.process.pid].start < 1000) {
+      // Wait a few moments before trying to come back up.
+      setTimeout(resize.bind(this, size), 1000);
+    }
+    else {
+      resize(size);
+    }
+
     delete workers[worker.process.pid];
-    resize(size);
   });
 
   cluster.setupMaster({
