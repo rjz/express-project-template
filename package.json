@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "WORKERS=2 node index | ./node_modules/bunyan/bin/bunyan",
-    "test": "jshint . && NODE_ENV=test ./node_modules/mocha/bin/mocha",
+    "test": "node_modules/jshint/bin/jshint && ./node_modules/mocha/bin/mocha",
     "cover": "NODE_ENV=test istanbul cover ./node_modules/mocha/bin/_mocha && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "config": "node tools/config"
   },
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "bunyan": "^0.23.1",
+    "confilter": "0.0.1",
     "express": "^4.6.1",
     "http-error-factories": "0.0.1",
     "lodash": "^2.4.1"

@@ -2,7 +2,7 @@ var _ = require('lodash'),
     express = require('express'),
     errors = require('http-error-factories');
 
-var config = require('./config.json');
+var config = require('./config');
 
 var middleware,
     port = config.port,
