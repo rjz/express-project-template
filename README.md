@@ -57,6 +57,7 @@ MIT
 [cluster]: http://nodejs.org/api/cluster.html
 [confilter]: https://github.com/rjz/confilter
 [express]: https://github.com/strongloop/express
+[http-error-factories]: https://github.com/rjz/http-error-factories
 [istanbul]: https://github.com/gotwarlost/istanbul
 [jshint]: http://www.jshint.com/
 [mocha]: https://github.com/visionmedia/mocha
